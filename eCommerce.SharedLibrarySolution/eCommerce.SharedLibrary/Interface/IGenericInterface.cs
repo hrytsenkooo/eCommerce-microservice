@@ -8,8 +8,8 @@ namespace eCommerce.SharedLibrary.Interface
         Task<Response> CreateAsync(T entity);
         Task<Response> UpdateAsync(T entity);
         Task<Response> DeleteAsync(T entity);
-        Task<IEnumerable<T>> GetAsync(T entity);
-        Task<T> GetByIdAsync(int id);
+        Task<IEnumerable<T>> GetAllAsync(T entity);
+        Task<T> FindByIdAsync(int id);
         Task<T> GetByAsync(Expression<Func<T, bool>> predicate);
     }
 }
