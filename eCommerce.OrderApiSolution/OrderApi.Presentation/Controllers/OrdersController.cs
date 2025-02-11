@@ -48,7 +48,7 @@ namespace OrderApi.Presentation.Controllers
             return orderDetail.OrderId > 0 ? Ok(orderDetail) : NotFound("No order found");
         }
 
-        [HttpGet]
+        [HttpPost]
         public async Task<ActionResult<Response>> CreateOrder(OrderDTO orderDTO)
         {
             if (!ModelState.IsValid) return BadRequest("Incomplete data submitted");
