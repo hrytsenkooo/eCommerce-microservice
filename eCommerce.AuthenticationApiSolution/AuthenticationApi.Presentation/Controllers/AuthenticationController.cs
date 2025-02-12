@@ -2,6 +2,7 @@
 using AuthenticationApi.Application.Interfaces;
 using eCommerce.SharedLibrary.Responses;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AuthenticationApi.Presentation.Controllers
@@ -15,7 +16,7 @@ namespace AuthenticationApi.Presentation.Controllers
         {
             if (!ModelState.IsValid) return BadRequest(ModelState);
             var result = await userInterface.Register(appUserDTO);
-            return result.Flag ? Ok(result) : BadRequest(Request);
+            return result.Flag ? Ok(result) : BadRequest(result);
         }
 
         [HttpPost("login")]
@@ -23,7 +24,7 @@ namespace AuthenticationApi.Presentation.Controllers
         {
             if (!ModelState.IsValid) return BadRequest(ModelState);
             var result = await userInterface.Login(loginDTO);
-            return result.Flag ? Ok(result) : BadRequest(Request);
+            return result.Flag ? Ok(result) : BadRequest(result);
         }
 
         [HttpGet("{id:int}")]
@@ -31,7 +32,7 @@ namespace AuthenticationApi.Presentation.Controllers
         {
             if (id <= 0) return BadRequest("Invalid user Id");
             var user = await userInterface.GetUser(id);
-            return user.Id > 0 ? Ok(user) : NotFound(Request);
+            return user.Id > 0 ? Ok(user) : NotFound();
         }
         
     }

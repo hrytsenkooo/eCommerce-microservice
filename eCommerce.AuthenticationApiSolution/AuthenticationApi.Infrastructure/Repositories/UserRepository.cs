@@ -70,7 +70,7 @@ namespace AuthenticationApi.Infrastructure.Repositories
         public async Task<Response> Register(AppUserDTO appUserDTO)
         {
             var getUser = await GetUserByEmail(appUserDTO.Email);
-            if (getUser is null) return new Response(false, $"You cannot use this email for registration");
+            if (getUser is not null) return new Response(false, $"You cannot use this email for registration");
 
             var result = context.Users.Add(new AppUser()
             {
