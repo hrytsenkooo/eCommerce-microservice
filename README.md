@@ -13,5 +13,4 @@ This project implements a scalable and resilient eCommerce platform using a micr
 - **Retry Mechanism**: ensures reliability by automatically retrying failed requests due to transient errors.
 
 ##
-
-![Microservices Diagram](https://i.ibb.co/hJY3Xjd8/Microservices.png)
+![Microservices Diagram](https://github.com/user-attachments/assets/6df3a210-5a3f-40e3-b1bd-cee0d7dedf06)
